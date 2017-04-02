@@ -164,21 +164,56 @@ public class arcade extends AppCompatActivity {
     }
 
     public void buttonjwbklik(View view) {
-        buattoast("button isian");
+        listbuttonjawabanurut();
 
-        historybutton.add(view.getId());
-        view.setVisibility(View.INVISIBLE);
+        Button b = (Button) view;
+        String dipilih = b.getText().toString();
 
-        buattoast("button " + view.getId() + " masuk ke array dan invisibel");
+        for (int i = 0; i < 7; i++) {
+            if (kolom[i].isShown()) {
+                buattoast("kolon ke" + i + "bisa diisi");
+                if (kolom[i].getText().toString().equals("")) {
+                    kolom[i].setText(dipilih);
+                    view.setVisibility(View.INVISIBLE);
+                    historybutton.add(view.getId());
+                    i = 7;
+                }
+            }
+        }
     }
 
     public void buttonisiklik(View view) {
         buattoast("button jawaban");
 
+        listbuttonjawabanurut();
+
+        for (int i = 6; i >= 0; i--) {
+            if (kolom[i].isShown()) {
+                if (kolom[i].getText().toString().equals("")) {
+                    buattoast("kolon ke" + i + "ga ada isinya");
+                } else {
+                    kolom[i].setText("");
+                    i = -1;
+                }
+            }
+        }
+
         int itemterakhir = historybutton.size() - 1;
         if (itemterakhir >= 0) {
             restorebutton(itemterakhir);
         }
+    }
+
+    public void listbuttonjawabanurut() {
+        btnisi1 = (Button) findViewById(R.id.btnisi1);
+        btnisi2 = (Button) findViewById(R.id.btnisi2);
+        btnisi3 = (Button) findViewById(R.id.btnisi3);
+        btnisi4 = (Button) findViewById(R.id.btnisi4);
+        btnisi5 = (Button) findViewById(R.id.btnisi5);
+        btnisi6 = (Button) findViewById(R.id.btnisi6);
+        btnisi7 = (Button) findViewById(R.id.btnisi7);
+
+        kolom = new Button[]{btnisi6, btnisi4, btnisi2, btnisi1, btnisi3, btnisi5, btnisi7};
     }
 
     public void restorebutton(int itemterakhir) {
