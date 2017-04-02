@@ -1,6 +1,5 @@
 package com.example.audi.projectutspenir;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -232,7 +229,6 @@ public class arcade extends AppCompatActivity {
         int terjawab = 0;
         for (int i = 0; i < 7; i++) {
             if (kolom[i].isShown()) {
-                buattoast("kolom " + kolom[i].getText().toString() + " sama dengan kolom : " + jawaban[jawabanke]);
                 if (kolom[i].getText().toString().equals(jawaban[jawabanke])) {
                     terjawab++;
                 } else {
@@ -240,6 +236,12 @@ public class arcade extends AppCompatActivity {
                 }
                 jawabanke++;
             }
+        }
+
+        if (terjawab == jawabanke) {
+            buattoast("semua jawaban sudah benar");
+        } else {
+            buattoast("silahkan di revisi kembali");
         }
     }
 
