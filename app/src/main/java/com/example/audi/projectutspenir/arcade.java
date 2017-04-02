@@ -1,6 +1,7 @@
 package com.example.audi.projectutspenir;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,8 @@ public class arcade extends AppCompatActivity {
     Button[] kolom, pilihan;
 
     LinearLayout lljawab;
+
+    String[] jawaban;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +87,7 @@ public class arcade extends AppCompatActivity {
     }
 
     public void buatsoal() {
-        soal.add(new soal("bbm", new String[]{"b", "b", "m",}, new String[]{"b", "b", "b", "b", "m", "b", "b", "b"}));
+        soal.add(new soal("bbm", new String[]{"b", "b", "m",}, new String[]{"c", "b", "w", "b", "m", "n", "b", "b"}));
         soal.add(new soal("bbm", new String[]{"l", "i", "n", "e"}, new String[]{"b", "l", "b", "e", "n", "b", "i", "b"}));
     }
 
@@ -99,6 +102,8 @@ public class arcade extends AppCompatActivity {
         munculkankotak();
 
         isihurufkebutton(s);
+
+        jawaban = s.getJawaban();
     }
 
     public void loadgambar(soal s) {
@@ -163,36 +168,15 @@ public class arcade extends AppCompatActivity {
         }
     }
 
-    public void buttonjwbklik(View view) {
-        listbuttonjawabanurut();
-
-        Button b = (Button) view;
-        String dipilih = b.getText().toString();
-
-        for (int i = 0; i < 7; i++) {
-            if (kolom[i].isShown()) {
-                buattoast("kolon ke" + i + "bisa diisi");
-                if (kolom[i].getText().toString().equals("")) {
-                    kolom[i].setText(dipilih);
-                    view.setVisibility(View.INVISIBLE);
-                    historybutton.add(view.getId());
-                    i = 7;
-                }
-            }
-        }
-    }
-
     public void buttonisiklik(View view) {
-        buattoast("button jawaban");
-
         listbuttonjawabanurut();
 
         for (int i = 6; i >= 0; i--) {
             if (kolom[i].isShown()) {
                 if (kolom[i].getText().toString().equals("")) {
-                    buattoast("kolon ke" + i + "ga ada isinya");
                 } else {
                     kolom[i].setText("");
+                    kolom[i].setBackgroundResource(android.R.drawable.editbox_dropdown_light_frame);
                     i = -1;
                 }
             }
@@ -201,6 +185,61 @@ public class arcade extends AppCompatActivity {
         int itemterakhir = historybutton.size() - 1;
         if (itemterakhir >= 0) {
             restorebutton(itemterakhir);
+        }
+    }
+
+    public void restorebutton(int itemterakhir) {
+        Button restore = (Button) findViewById(historybutton.get(itemterakhir));
+
+        restore.setVisibility(View.VISIBLE);
+
+        historybutton.remove(itemterakhir);
+    }
+
+    public void buttonjwbklik(View view) {
+        listbuttonjawabanurut();
+
+        Button b = (Button) view;
+        String dipilih = b.getText().toString();
+
+        for (int i = 0; i < 7; i++) {
+            if (kolom[i].isShown()) {
+                if (kolom[i].getText().toString().equals("")) {
+                    kolom[i].setText(dipilih);
+                    view.setVisibility(View.INVISIBLE);
+                    historybutton.add(view.getId());
+                    i = 7;
+                }
+            }
+        }
+
+        for (int i = 6; i >= 0; i--) {
+            if (kolom[i].isShown()) {
+                if (kolom[i].getText().toString().equals("")) {
+                    i = -1;
+                } else {
+                    cekjawaban();
+                    i = -1;
+                }
+            }
+        }
+    }
+
+    public void cekjawaban() {
+        buattoast("cek jawaban . . .");
+
+        int jawabanke = 0;
+        int terjawab = 0;
+        for (int i = 0; i < 7; i++) {
+            if (kolom[i].isShown()) {
+                buattoast("kolom " + kolom[i].getText().toString() + " sama dengan kolom : " + jawaban[jawabanke]);
+                if (kolom[i].getText().toString().equals(jawaban[jawabanke])) {
+                    terjawab++;
+                } else {
+                    kolom[i].setBackgroundColor(Color.parseColor("#FF0000"));
+                }
+                jawabanke++;
+            }
         }
     }
 
@@ -216,14 +255,6 @@ public class arcade extends AppCompatActivity {
         kolom = new Button[]{btnisi6, btnisi4, btnisi2, btnisi1, btnisi3, btnisi5, btnisi7};
     }
 
-    public void restorebutton(int itemterakhir) {
-        Button restore = (Button) findViewById(historybutton.get(itemterakhir));
-
-        restore.setVisibility(View.VISIBLE);
-
-        historybutton.remove(itemterakhir);
-    }
-
     public void imageklik(View view) {
         buattoast("salah sasaran bosku -_-");
     }
@@ -235,7 +266,6 @@ public class arcade extends AppCompatActivity {
     public void resizeJawaban(Integer selisih) {
 
         width = btnisi1.getWidth();
-        buattoast(String.valueOf(width));
         if (selisih.equals(2)) {
             lljawab = (LinearLayout) findViewById(R.id.lljawab);
             LinearLayout.LayoutParams param = (LinearLayout.LayoutParams) lljawab.getLayoutParams();
