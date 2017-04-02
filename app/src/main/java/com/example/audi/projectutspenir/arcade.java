@@ -27,7 +27,8 @@ public class arcade extends AppCompatActivity {
 
     Integer panjang, width;
 
-    Button btnisi1, btnisi2, btnisi3, btnisi4, btnisi5, btnisi6, btnisi7;
+    Button btnisi1, btnisi2, btnisi3, btnisi4, btnisi5, btnisi6, btnisi7, btnjwb1, btnjwb2, btnjwb3, btnjwb4, btnjwb5, btnjwb6, btnjwb7, btnjwb8;
+    Button[] kolom, pilihan;
 
     LinearLayout lljawab;
 
@@ -83,18 +84,30 @@ public class arcade extends AppCompatActivity {
     }
 
     public void buatsoal() {
-        soal.add(new soal("bbm", new String[]{"b", "b", "b", "b"}, new String[]{"b", "b", "b", "b", "m", "b", "b", "b"}));
+        soal.add(new soal("bbm", new String[]{"b", "b", "m",}, new String[]{"b", "b", "b", "b", "m", "b", "b", "b"}));
+        soal.add(new soal("bbm", new String[]{"l", "i", "n", "e"}, new String[]{"b", "l", "b", "e", "n", "b", "i", "b"}));
     }
 
     public void loadsoal() {
         soal s = soal.get(0);
 
-        int resID = getResources().getIdentifier(s.getGambar(), "drawable", getPackageName());
-        imgsoal = (ImageView) findViewById(R.id.imgsoal);
-        imgsoal.setImageResource(resID);
+        loadgambar(s);
 
         panjang = Array.getLength(s.getJawaban());
 
+        listsemuabuttonjawaban();
+        munculkankotak();
+
+        isihurufkebutton(s);
+    }
+
+    public void loadgambar(soal s) {
+        int resID = getResources().getIdentifier(s.getGambar(), "drawable", getPackageName());
+        imgsoal = (ImageView) findViewById(R.id.imgsoal);
+        imgsoal.setImageResource(resID);
+    }
+
+    public void listsemuabuttonjawaban() {
         btnisi1 = (Button) findViewById(R.id.btnisi1);
         btnisi2 = (Button) findViewById(R.id.btnisi2);
         btnisi3 = (Button) findViewById(R.id.btnisi3);
@@ -103,8 +116,29 @@ public class arcade extends AppCompatActivity {
         btnisi6 = (Button) findViewById(R.id.btnisi6);
         btnisi7 = (Button) findViewById(R.id.btnisi7);
 
-        Button[] kolom = new Button[]{btnisi1, btnisi2, btnisi3, btnisi4, btnisi5, btnisi6, btnisi7};
+        kolom = new Button[]{btnisi1, btnisi2, btnisi3, btnisi4, btnisi5, btnisi6, btnisi7};
+    }
 
+    public void isihurufkebutton(soal s) {
+        btnjwb1 = (Button) findViewById(R.id.btnjwb1);
+        btnjwb2 = (Button) findViewById(R.id.btnjwb2);
+        btnjwb3 = (Button) findViewById(R.id.btnjwb3);
+        btnjwb4 = (Button) findViewById(R.id.btnjwb4);
+        btnjwb5 = (Button) findViewById(R.id.btnjwb5);
+        btnjwb6 = (Button) findViewById(R.id.btnjwb6);
+        btnjwb7 = (Button) findViewById(R.id.btnjwb7);
+        btnjwb8 = (Button) findViewById(R.id.btnjwb8);
+
+        pilihan = new Button[]{btnjwb1, btnjwb2, btnjwb3, btnjwb4, btnjwb5, btnjwb6, btnjwb7, btnjwb8};
+
+        String[] jawaban = s.getPilihan();
+
+        for (int i = 0; i < 8; i++) {
+            pilihan[i].setText(jawaban[i]);
+        }
+    }
+
+    public void munculkankotak() {
         for (int i = 0; i < panjang; i++) {
             //memunculkan kotak
             kolom[i].setVisibility(View.VISIBLE);
