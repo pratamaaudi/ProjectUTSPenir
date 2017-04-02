@@ -48,61 +48,68 @@
         android:onClick="imageklik"/>
 
     <LinearLayout
+        android:id="@+id/lljawab"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_weight="5"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnisi7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="buttonisiklik"/>
-
-        <Button
-            android:id="@+id/btnisi5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="buttonisiklik"/>
-
-        <Button
-            android:id="@+id/btnisi3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="buttonisiklik"/>
-
-        <Button
-            android:id="@+id/btnisi1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="buttonisiklik"/>
-
-        <Button
-            android:id="@+id/btnisi2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="buttonisiklik"/>
-
-        <Button
-            android:id="@+id/btnisi4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="buttonisiklik"/>
 
         <Button
             android:id="@+id/btnisi6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonisiklik"/>
+            android:onClick="buttonisiklik"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnisi4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="buttonisiklik"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnisi2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="buttonisiklik"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnisi1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="buttonisiklik"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnisi3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="buttonisiklik"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnisi5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="buttonisiklik"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnisi7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="buttonisiklik"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
