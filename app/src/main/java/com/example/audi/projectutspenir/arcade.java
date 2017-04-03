@@ -260,8 +260,7 @@ public class arcade extends AppCompatActivity {
             loadsoal(soalke);
         } else {
             buattoast("soal habis");
-            Intent i = new Intent(getApplicationContext(), gameover.class);
-            startActivity(i);
+            gameover();
         }
     }
 
@@ -275,10 +274,15 @@ public class arcade extends AppCompatActivity {
         }
         if (kesempatan < 0) {
             buattoast("pindah ke end game");
-            Intent i = new Intent(getApplicationContext(), gameover.class);
-            startActivity(i);
+            gameover();
         }
         setkesempatan(kesempatan);
+    }
+
+    public void gameover(){
+        Intent i = new Intent(getApplicationContext(), gameover.class);
+        i.putExtra("skor",skor);
+        startActivity(i);
     }
 
     public void listbuttonjawabanurut() {

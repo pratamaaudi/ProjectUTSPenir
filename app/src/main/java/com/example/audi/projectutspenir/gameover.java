@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class gameover extends AppCompatActivity {
 
@@ -13,6 +15,12 @@ public class gameover extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         hilangkanheader();
         setContentView(R.layout.activity_gameover);
+
+        Intent i = getIntent();
+        Integer skor = i.getIntExtra("skor",0);
+
+        TextView txtskor = (TextView) findViewById(R.id.txtskor);
+        txtskor.setText("SKOR ANDA : "+String.valueOf(skor));
     }
 
     public void hilangkanheader() {
@@ -28,5 +36,9 @@ public class gameover extends AppCompatActivity {
     public void mainmenu(View view){
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
+    }
+
+    public void buattoast(String pesan) {
+        Toast.makeText(gameover.this, pesan, Toast.LENGTH_SHORT).show();
     }
 }
