@@ -23,7 +23,7 @@ public class arcade extends AppCompatActivity {
 
     ImageView imgsoal;
 
-    Integer panjang, width;
+    Integer panjang, width, kesempatan, skor;
 
     Button btnisi1, btnisi2, btnisi3, btnisi4, btnisi5, btnisi6, btnisi7, btnjwb1, btnjwb2, btnjwb3, btnjwb4, btnjwb5, btnjwb6, btnjwb7, btnjwb8;
     Button[] kolom, pilihan;
@@ -38,9 +38,11 @@ public class arcade extends AppCompatActivity {
         hilangkanheader();
         setContentView(R.layout.activity_arcade);
 
-        setskor(0);
+        skor = 0;
+        setskor(skor);
 
-        setkesempatan(3);
+        kesempatan = 3;
+        setkesempatan(kesempatan);
 
         buatsoal();
 
@@ -241,7 +243,17 @@ public class arcade extends AppCompatActivity {
         if (terjawab == jawabanke) {
             buattoast("semua jawaban sudah benar");
         } else {
-            buattoast("silahkan di revisi kembali");
+            kesempatan--;
+            if (kesempatan > 1) {
+                buattoast("silahkan di revisi kembali, kesempatanmu berkurang menjadi " + kesempatan);
+            }
+            if (kesempatan == 1) {
+                buattoast("ini kesempatan terakhir, jangan di sia siakan broo!!");
+            }
+            if (kesempatan == 0) {
+                buattoast("oke kesempatanmu sudah habis");
+            }
+            setkesempatan(kesempatan);
         }
     }
 
