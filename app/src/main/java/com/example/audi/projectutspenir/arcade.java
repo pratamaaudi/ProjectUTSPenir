@@ -23,7 +23,7 @@ public class arcade extends AppCompatActivity {
 
     ImageView imgsoal;
 
-    Integer panjang, width, kesempatan, skor;
+    Integer panjang, width, kesempatan, skor, soalke, banyaksoal;
 
     Button btnisi1, btnisi2, btnisi3, btnisi4, btnisi5, btnisi6, btnisi7, btnjwb1, btnjwb2, btnjwb3, btnjwb4, btnjwb5, btnjwb6, btnjwb7, btnjwb8;
     Button[] kolom, pilihan;
@@ -46,7 +46,8 @@ public class arcade extends AppCompatActivity {
 
         buatsoal();
 
-        loadsoal();
+        soalke = 0;
+        loadsoal(soalke);
     }
 
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -87,11 +88,13 @@ public class arcade extends AppCompatActivity {
 
     public void buatsoal() {
         soal.add(new soal("bbm", new String[]{"b", "b", "m",}, new String[]{"c", "b", "w", "b", "m", "n", "b", "b"}));
-        soal.add(new soal("bbm", new String[]{"l", "i", "n", "e"}, new String[]{"b", "l", "b", "e", "n", "b", "i", "b"}));
+        soal.add(new soal("line", new String[]{"l", "i", "n", "e"}, new String[]{"b", "l", "b", "e", "n", "b", "i", "b"}));
+
+        banyaksoal = soal.size();
     }
 
-    public void loadsoal() {
-        soal s = soal.get(0);
+    public void loadsoal(int soalke) {
+        soal s = soal.get(soalke);
 
         loadgambar(s);
 
@@ -138,6 +141,7 @@ public class arcade extends AppCompatActivity {
         String[] jawaban = s.getPilihan();
 
         for (int i = 0; i < 8; i++) {
+            pilihan[i].setVisibility(View.VISIBLE);
             pilihan[i].setText(jawaban[i]);
         }
     }
@@ -241,20 +245,35 @@ public class arcade extends AppCompatActivity {
         }
 
         if (terjawab == jawabanke) {
-            buattoast("semua jawaban sudah benar");
+            jawabanbenar();
         } else {
-            kesempatan--;
-            if (kesempatan > 1) {
-                buattoast("silahkan di revisi kembali, kesempatanmu berkurang menjadi " + kesempatan);
-            }
-            if (kesempatan == 1) {
-                buattoast("ini kesempatan terakhir, jangan di sia siakan broo!!");
-            }
-            if (kesempatan == 0) {
-                buattoast("oke kesempatanmu sudah habis");
-            }
-            setkesempatan(kesempatan);
+            jawabansalah();
         }
+    }
+
+    public void jawabanbenar() {
+        skor += 100;
+        setskor(skor);
+        soalke++;
+        if (soalke < banyaksoal) {
+            loadsoal(soalke);
+        } else {
+            buattoast("soal habis");
+        }
+    }
+
+    public void jawabansalah() {
+        kesempatan--;
+        if (kesempatan > 1) {
+            buattoast("silahkan di revisi kembali, kesempatanmu berkurang menjadi " + kesempatan);
+        }
+        if (kesempatan == 0) {
+            buattoast("ini kesempatan terakhir, jangan di sia siakan broo!!");
+        }
+        if (kesempatan < 0) {
+            buattoast("pindah ke end game");
+        }
+        setkesempatan(kesempatan);
     }
 
     public void listbuttonjawabanurut() {
