@@ -1,5 +1,6 @@
 package com.example.audi.projectutspenir;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -259,6 +260,8 @@ public class arcade extends AppCompatActivity {
             loadsoal(soalke);
         } else {
             buattoast("soal habis");
+            Intent i = new Intent(getApplicationContext(), gameover.class);
+            startActivity(i);
         }
     }
 
@@ -272,6 +275,8 @@ public class arcade extends AppCompatActivity {
         }
         if (kesempatan < 0) {
             buattoast("pindah ke end game");
+            Intent i = new Intent(getApplicationContext(), gameover.class);
+            startActivity(i);
         }
         setkesempatan(kesempatan);
     }
