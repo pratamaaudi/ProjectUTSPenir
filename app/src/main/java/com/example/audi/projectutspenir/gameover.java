@@ -11,13 +11,15 @@ import android.widget.Toast;
 
 public class gameover extends AppCompatActivity {
 
+    TextView txtskor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hilangkanheader();
         setContentView(R.layout.activity_gameover);
 
-        TextView txtskor = (TextView) findViewById(R.id.txtskor);
+        txtskor = (TextView) findViewById(R.id.txtskor);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
 

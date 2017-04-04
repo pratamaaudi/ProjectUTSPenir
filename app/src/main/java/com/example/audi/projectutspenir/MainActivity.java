@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         btnarcade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buattoast("button arcade");
                 Intent i = new Intent(getApplicationContext(), arcade.class);
                 startActivity(i);
             }
@@ -44,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 buattoast("button catch em all");
             }
         });
+
+        Intent i = new Intent(getApplicationContext(), catchall.class);
+        startActivity(i);
     }
 
     public void buattoast(String pesan) {
