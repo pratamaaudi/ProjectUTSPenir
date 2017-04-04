@@ -32,7 +32,8 @@
                 android:gravity="center"
                 android:text="SOCIAL MEDIA"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="txtsocialonclick"/>
 
             <TextView
                 android:id="@+id/txtbrand"
@@ -44,7 +45,8 @@
                 android:gravity="center"
                 android:text="BRAND"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="txtbrandonclick"/>
 
             <TextView
                 android:id="@+id/txtapp"
@@ -67,6 +69,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@android:color/white"
-        android:elevation="1dp" />
+        android:elevation="1dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
 
 </LinearLayout>
