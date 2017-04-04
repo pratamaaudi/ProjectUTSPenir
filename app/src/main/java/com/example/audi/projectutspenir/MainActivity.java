@@ -49,4 +49,9 @@ public class MainActivity extends AppCompatActivity {
     public void buattoast(String pesan) {
         Toast.makeText(MainActivity.this, pesan, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }

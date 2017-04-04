@@ -330,4 +330,9 @@ public class arcade extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onBackPressed() {
+        buattoast("jangan melarikan diri brooo");
+    }
 }

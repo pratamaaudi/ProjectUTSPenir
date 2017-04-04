@@ -1,6 +1,7 @@
 package com.example.audi.projectutspenir;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +17,17 @@ public class gameover extends AppCompatActivity {
         hilangkanheader();
         setContentView(R.layout.activity_gameover);
 
-        Intent i = getIntent();
-        Integer skor = i.getIntExtra("skor",0);
-
         TextView txtskor = (TextView) findViewById(R.id.txtskor);
-        txtskor.setText("SKOR ANDA : "+String.valueOf(skor));
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
+
+        txtskor.setTypeface(custom_font);
+
+        Intent i = getIntent();
+        Integer skor = i.getIntExtra("skor", 0);
+
+
+        txtskor.setText("SKOR ANDA : \n" + String.valueOf(skor));
     }
 
     public void hilangkanheader() {
@@ -28,17 +35,23 @@ public class gameover extends AppCompatActivity {
         getSupportActionBar().hide();
     }
 
-    public void retry(View view){
+    public void retry(View view) {
         Intent i = new Intent(getApplicationContext(), arcade.class);
         startActivity(i);
     }
 
-    public void mainmenu(View view){
+    public void mainmenu(View view) {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
     }
 
     public void buattoast(String pesan) {
         Toast.makeText(gameover.this, pesan, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
     }
 }
