@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".arcade" />
-        <activity android:name=".gameover"></activity>
+        <activity android:name=".gameover" />
+        <activity android:name=".catchall"></activity>
     </application>
 
 </manifest>
