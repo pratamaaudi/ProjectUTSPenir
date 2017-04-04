@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llmain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wpp2"
     android:orientation="vertical"
     tools:context="com.example.audi.projectutspenir.arcade">
 
@@ -44,8 +46,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="-20dp"
         android:layout_weight="3"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        android:onClick="imageklik"/>
+        android:onClick="imageklik"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
     <LinearLayout
         android:id="@+id/lljawab"
@@ -134,28 +136,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
         <Button
             android:id="@+id/btnjwb2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
         <Button
             android:id="@+id/btnjwb3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
         <Button
             android:id="@+id/btnjwb4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
     </LinearLayout>
 
@@ -174,28 +176,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
         <Button
             android:id="@+id/btnjwb6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
         <Button
             android:id="@+id/btnjwb7"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
         <Button
             android:id="@+id/btnjwb8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="buttonjwbklik"/>
+            android:onClick="buttonjwbklik" />
 
     </LinearLayout>
 
