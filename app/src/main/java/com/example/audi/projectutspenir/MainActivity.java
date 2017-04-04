@@ -35,17 +35,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void buttoncatchonclick(){
+    public void buttoncatchonclick() {
         btncatch = (Button) findViewById(R.id.btncatch);
         btncatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buattoast("button catch em all");
+                Intent i = new Intent(getApplicationContext(), catchall.class);
+                startActivity(i);
             }
         });
-
-        Intent i = new Intent(getApplicationContext(), catchall.class);
-        startActivity(i);
     }
 
     public void buattoast(String pesan) {
