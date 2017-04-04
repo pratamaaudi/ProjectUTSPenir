@@ -2,8 +2,8 @@ package com.example.audi.projectutspenir;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class arcade extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class arcade extends AppCompatActivity {
     Button btnisi1, btnisi2, btnisi3, btnisi4, btnisi5, btnisi6, btnisi7, btnjwb1, btnjwb2, btnjwb3, btnjwb4, btnjwb5, btnjwb6, btnjwb7, btnjwb8;
     Button[] kolom, pilihan;
 
-    LinearLayout lljawab;
+    LinearLayout lljawab, llmain;
 
     String[] jawaban;
 
@@ -38,6 +39,8 @@ public class arcade extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         hilangkanheader();
         setContentView(R.layout.activity_arcade);
+
+        gantibackground();
 
         skor = 0;
         setskor(skor);
@@ -75,6 +78,15 @@ public class arcade extends AppCompatActivity {
     public void hilangkanheader() {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getSupportActionBar().hide();
+    }
+
+    public void gantibackground() {
+        String[] background = new String[]{"wpp1", "wpp2", "wpp3"};
+        Random r = new Random();
+        int i = r.nextInt(3 - 0);
+        llmain = (LinearLayout) findViewById(R.id.llmain);
+        int resID = getResources().getIdentifier(background[i], "drawable", getPackageName());
+        llmain.setBackgroundResource(resID);
     }
 
     public void setskor(int skor) {
@@ -230,8 +242,6 @@ public class arcade extends AppCompatActivity {
     }
 
     public void cekjawaban() {
-        buattoast("cek jawaban . . .");
-
         int jawabanke = 0;
         int terjawab = 0;
         for (int i = 0; i < 7; i++) {
@@ -259,7 +269,6 @@ public class arcade extends AppCompatActivity {
         if (soalke < banyaksoal) {
             loadsoal(soalke);
         } else {
-            buattoast("soal habis");
             gameover();
         }
     }
@@ -273,15 +282,14 @@ public class arcade extends AppCompatActivity {
             buattoast("ini kesempatan terakhir, jangan di sia siakan broo!!");
         }
         if (kesempatan < 0) {
-            buattoast("pindah ke end game");
             gameover();
         }
         setkesempatan(kesempatan);
     }
 
-    public void gameover(){
+    public void gameover() {
         Intent i = new Intent(getApplicationContext(), gameover.class);
-        i.putExtra("skor",skor);
+        i.putExtra("skor", skor);
         startActivity(i);
     }
 
