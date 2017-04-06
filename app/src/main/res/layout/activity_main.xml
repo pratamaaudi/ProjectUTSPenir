@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
     android:orientation="vertical"
     tools:context="com.example.audi.projectutspenir.MainActivity">
 
@@ -21,6 +22,8 @@
         android:id="@+id/btnarcade"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="3"
         android:text="ARCADE MODE" />
 
@@ -28,6 +31,8 @@
         android:id="@+id/btncatch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="3"
         android:text="CATCH THEM ALL !!!" />
 </LinearLayout>

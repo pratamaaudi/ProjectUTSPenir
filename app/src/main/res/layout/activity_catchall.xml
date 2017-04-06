@@ -10,14 +10,14 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="6"
-        android:background="@android:color/white"
+        android:layout_weight="5"
+        android:background="@android:color/holo_blue_dark"
         android:elevation="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
+            android:background="@android:color/holo_blue_dark"
             android:elevation="10dp"
             android:fadingEdge="horizontal|vertical"
             android:orientation="horizontal">
@@ -30,10 +30,10 @@
                 android:layout_marginRight="30dp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:onClick="txtsocialonclick"
                 android:text="SOCIAL MEDIA"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:onClick="txtsocialonclick"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtbrand"
@@ -43,10 +43,10 @@
                 android:layout_marginRight="30dp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:onClick="txtbrandonclick"
                 android:text="BRAND"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:onClick="txtbrandonclick"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtapp"
@@ -58,19 +58,48 @@
                 android:gravity="center"
                 android:text="APPLICATION"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="txtapponclick"/>
 
         </LinearLayout>
     </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:background="@android:color/holo_blue_dark"
+        android:elevation="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txttotal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="5 / 10" />
+
+        <ProgressBar
+            android:id="@+id/prgtotal"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:max="10"
+            android:progress="10" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@android:color/white"
-        android:elevation="1dp"
+        android:background="@android:color/darker_gray"
         android:divider="@null"
-        android:dividerHeight="0dp"/>
+        android:dividerHeight="0dp"
+        android:elevation="1dp" />
 
 </LinearLayout>
