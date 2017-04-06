@@ -1,6 +1,7 @@
 package com.example.audi.projectutspenir;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Audi on 4/2/2017.
@@ -9,7 +10,8 @@ import java.io.Serializable;
 public class soal implements Serializable {
     private String gambar;
     private String[] jawaban;
-    private String[] pilihan;
+    private ArrayList<String> pilihan;
+    private Boolean status;
 
     public String getGambar() {
         return gambar;
@@ -17,14 +19,6 @@ public class soal implements Serializable {
 
     public void setGambar(String gambar) {
         this.gambar = gambar;
-    }
-
-    public String[] getPilihan() {
-        return pilihan;
-    }
-
-    public void setPilihan(String[] isian) {
-        this.pilihan = isian;
     }
 
     public String[] getJawaban() {
@@ -35,9 +29,26 @@ public class soal implements Serializable {
         this.jawaban = jawaban;
     }
 
-    public soal(String gambar, String[] jawaban, String[] pilihan){
+    public soal(String gambar, String[] jawaban, ArrayList<String> pilihan, Boolean status){
         setGambar(gambar);
         setJawaban(jawaban);
         setPilihan(pilihan);
+        setStatus(status);
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public ArrayList<String> getPilihan() {
+        return pilihan;
+    }
+
+    public void setPilihan(ArrayList<String> pilihan) {
+        this.pilihan = pilihan;
     }
 }

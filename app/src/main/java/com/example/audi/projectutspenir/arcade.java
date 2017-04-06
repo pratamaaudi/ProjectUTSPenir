@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 public class arcade extends AppCompatActivity {
@@ -100,10 +102,310 @@ public class arcade extends AppCompatActivity {
     }
 
     public void buatsoal() {
-        soal.add(new soal("bbm", new String[]{"b", "b", "m",}, new String[]{"c", "b", "w", "b", "m", "n", "b", "b"}));
-        soal.add(new soal("line", new String[]{"l", "i", "n", "e"}, new String[]{"b", "l", "b", "e", "n", "b", "i", "b"}));
+        soal.add(new soal("bbm", new String[]{"b", "b", "m",}, new ArrayList<String>() {{
+            add("a");
+            add("b");
+            add("a");
+            add("b");
+            add("a");
+            add("m");
+            add("a");
+            add("a");
+        }}, false));
+        soal.add(new soal("amazon", new String[]{"a", "m", "a", "z", "o", "n", "e"}, new ArrayList<String>() {{
+            add("a");
+            add("m");
+            add("a");
+            add("z");
+            add("o");
+            add("n");
+            add("e");
+            add("t");
+        }}, false));
+        soal.add(new soal("line", new String[]{"l", "i", "n", "e"}, new ArrayList<String>() {{
+            add("l");
+            add("i");
+            add("n");
+            add("e");
+            add("s");
+            add("z");
+            add("w");
+            add("a");
+        }}, false));
+        soal.add(new soal("aol", new String[]{"a", "o", "l"}, new ArrayList<String>() {{
+            add("a");
+            add("o");
+            add("l");
+            add("w");
+            add("e");
+            add("s");
+            add("u");
+            add("x");
+        }}, false));
+        soal.add(new soal("bing", new String[]{"b", "i", "n", "g"}, new ArrayList<String>() {{
+            add("b");
+            add("i");
+            add("n");
+            add("g");
+            add("s");
+            add("f");
+            add("e");
+            add("r");
+        }}, false));
+        soal.add(new soal("blog", new String[]{"b", "l", "o", "g"}, new ArrayList<String>() {{
+            add("b");
+            add("l");
+            add("o");
+            add("g");
+            add("w");
+            add("s");
+            add("e");
+            add("o");
+        }}, false));
+        soal.add(new soal("blogger", new String[]{"b", "l", "o", "g", "g", "e", "r"}, new ArrayList<String>() {{
+            add("b");
+            add("l");
+            add("o");
+            add("g");
+            add("g");
+            add("e");
+            add("r");
+            add("u");
+        }}, false));
+        soal.add(new soal("bmw", new String[]{"b", "m", "w"}, new ArrayList<String>() {{
+            add("b");
+            add("m");
+            add("w");
+            add("r");
+            add("e");
+            add("s");
+            add("i");
+            add("i");
+        }}, false));
+        soal.add(new soal("chrome", new String[]{"c", "h", "r", "o", "m", "e"}, new ArrayList<String>() {{
+            add("c");
+            add("h");
+            add("r");
+            add("o");
+            add("m");
+            add("e");
+            add("x");
+            add("f");
+        }}, false));
+        soal.add(new soal("drive", new String[]{"d", "r", "i", "v", "e"}, new ArrayList<String>() {{
+            add("d");
+            add("r");
+            add("i");
+            add("v");
+            add("e");
+            add("g");
+            add("o");
+            add("o");
+        }}, false));
+        soal.add(new soal("dropbox", new String[]{"d", "r", "o", "p", "b", "o", "x"}, new ArrayList<String>() {{
+            add("d");
+            add("r");
+            add("o");
+            add("p");
+            add("b");
+            add("o");
+            add("x");
+            add("s");
+        }}, false));
+        soal.add(new soal("github", new String[]{"g", "i", "t", "h", "u", "b"}, new ArrayList<String>() {{
+            add("g");
+            add("i");
+            add("t");
+            add("h");
+            add("u");
+            add("b");
+            add("e");
+            add("a");
+        }}, false));
+        soal.add(new soal("kaskus", new String[]{"k", "a", "s", "k", "u", "s"}, new ArrayList<String>() {{
+            add("k");
+            add("a");
+            add("s");
+            add("k");
+            add("u");
+            add("s");
+            add("z");
+            add("u");
+        }}, false));
+        soal.add(new soal("nexus", new String[]{"n", "e", "x", "u", "s"}, new ArrayList<String>() {{
+            add("n");
+            add("e");
+            add("x");
+            add("u");
+            add("s");
+            add("i");
+            add("a");
+            add("n");
+        }}, false));
+        soal.add(new soal("pandora", new String[]{"p", "a", "n", "d", "o", "r", "a"}, new ArrayList<String>() {{
+            add("p");
+            add("a");
+            add("n");
+            add("d");
+            add("o");
+            add("r");
+            add("a");
+            add("t");
+        }}, false));
+        soal.add(new soal("paypal", new String[]{"p", "a", "y", "p", "a", "l"}, new ArrayList<String>() {{
+            add("p");
+            add("a");
+            add("y");
+            add("p");
+            add("a");
+            add("l");
+            add("o");
+            add("l");
+        }}, false));
+        soal.add(new soal("ps", new String[]{"p", "s"}, new ArrayList<String>() {{
+            add("p");
+            add("s");
+            add("l");
+            add("a");
+            add("y");
+            add("t");
+            add("o");
+            add("n");
+        }}, false));
+        soal.add(new soal("skype", new String[]{"s", "k", "y", "p", "e"}, new ArrayList<String>() {{
+            add("s");
+            add("k");
+            add("y");
+            add("p");
+            add("e");
+            add("i");
+            add("a");
+            add("c");
+        }}, false));
+        soal.add(new soal("spotify", new String[]{"s", "p", "o", "t", "i", "f", "y"}, new ArrayList<String>() {{
+            add("s");
+            add("p");
+            add("o");
+            add("t");
+            add("i");
+            add("f");
+            add("y");
+            add("t");
+        }}, false));
+        soal.add(new soal("tesla", new String[]{"t", "e", "s", "l", "a"}, new ArrayList<String>() {{
+            add("t");
+            add("e");
+            add("s");
+            add("l");
+            add("a");
+            add("s");
+            add("r");
+            add("j");
+        }}, false));
+        soal.add(new soal("twitter", new String[]{"t", "w", "i", "t", "t", "e", "r"}, new ArrayList<String>() {{
+            add("t");
+            add("w");
+            add("i");
+            add("t");
+            add("t");
+            add("e");
+            add("r");
+            add("w");
+        }}, false));
+        soal.add(new soal("uber", new String[]{"u", "b", "e", "r"}, new ArrayList<String>() {{
+            add("u");
+            add("b");
+            add("e");
+            add("r");
+            add("j");
+            add("e");
+            add("k");
+            add("s");
+        }}, false));
+        soal.add(new soal("viber", new String[]{"v", "i", "b", "e", "r"}, new ArrayList<String>() {{
+            add("v");
+            add("i");
+            add("b");
+            add("e");
+            add("r");
+            add("a");
+            add("t");
+            add("e");
+        }}, false));
+        soal.add(new soal("vimeo", new String[]{"v", "i", "m", "e", "o"}, new ArrayList<String>() {{
+            add("v");
+            add("i");
+            add("m");
+            add("e");
+            add("o");
+            add("d");
+            add("w");
+            add("y");
+        }}, false));
+        soal.add(new soal("vlc", new String[]{"v", "l", "c"}, new ArrayList<String>() {{
+            add("v");
+            add("l");
+            add("c");
+            add("a");
+            add("d");
+            add("w");
+            add("y");
+            add("i");
+        }}, false));
+        soal.add(new soal("wechat", new String[]{"w", "e", "c", "h", "a", "t"}, new ArrayList<String>() {{
+            add("w");
+            add("e");
+            add("c");
+            add("h");
+            add("a");
+            add("t");
+            add("v");
+            add("o");
+        }}, false));
+        soal.add(new soal("xbox", new String[]{"x", "b", "o", "x"}, new ArrayList<String>() {{
+            add("x");
+            add("b");
+            add("o");
+            add("x");
+            add("e");
+            add("r");
+            add("a");
+            add("d");
+        }}, false));
+        soal.add(new soal("yahoo", new String[]{"y", "a", "h", "o", "o"}, new ArrayList<String>() {{
+            add("y");
+            add("a");
+            add("h");
+            add("h");
+            add("o");
+            add("o");
+            add("a");
+            add("y");
+        }}, false));
+        soal.add(new soal("youtube2", new String[]{"y", "o", "u", "t", "u", "b", "e"}, new ArrayList<String>() {{
+            add("y");
+            add("o");
+            add("u");
+            add("t");
+            add("u");
+            add("b");
+            add("e");
+            add("v");
+        }}, false));
+        soal.add(new soal("zynga", new String[]{"z", "y", "n", "g", "a"}, new ArrayList<String>() {{
+            add("z");
+            add("y");
+            add("n");
+            add("g");
+            add("a");
+            add("i");
+            add("g");
+            add("s");
+        }}, false));
+
 
         banyaksoal = soal.size();
+        Collections.shuffle(soal);
     }
 
     public void loadsoal(int soalke) {
@@ -151,15 +453,20 @@ public class arcade extends AppCompatActivity {
 
         pilihan = new Button[]{btnjwb1, btnjwb2, btnjwb3, btnjwb4, btnjwb5, btnjwb6, btnjwb7, btnjwb8};
 
-        String[] jawaban = s.getPilihan();
+        ArrayList<String> jawaban = s.getPilihan();
+        Collections.shuffle(jawaban);
 
         for (int i = 0; i < 8; i++) {
             pilihan[i].setVisibility(View.VISIBLE);
-            pilihan[i].setText(jawaban[i]);
+            pilihan[i].setText(jawaban.get(i));
         }
     }
 
     public void munculkankotak() {
+        for (int i = 0; i < 7; i++) {
+            kolom[i].setVisibility(View.INVISIBLE);
+        }
+
         for (int i = 0; i < panjang; i++) {
             //memunculkan kotak
             kolom[i].setVisibility(View.VISIBLE);
@@ -218,6 +525,7 @@ public class arcade extends AppCompatActivity {
         Button b = (Button) view;
         String dipilih = b.getText().toString();
 
+
         for (int i = 0; i < 7; i++) {
             if (kolom[i].isShown()) {
                 if (kolom[i].getText().toString().equals("")) {
@@ -225,17 +533,21 @@ public class arcade extends AppCompatActivity {
                     view.setVisibility(View.INVISIBLE);
                     historybutton.add(view.getId());
                     i = 7;
+
+                    cekkotakhabis();
                 }
             }
         }
+    }
 
-        for (int i = 6; i >= 0; i--) {
-            if (kolom[i].isShown()) {
-                if (kolom[i].getText().toString().equals("")) {
-                    i = -1;
+    public void cekkotakhabis(){
+        for (int i2 = 6; i2 >= 0; i2--) {
+            if (kolom[i2].isShown()) {
+                if (kolom[i2].getText().toString().equals("")) {
+                    i2 = -1;
                 } else {
                     cekjawaban();
-                    i = -1;
+                    i2 = -1;
                 }
             }
         }
@@ -266,7 +578,7 @@ public class arcade extends AppCompatActivity {
         skor += 100;
         setskor(skor);
         soalke++;
-        if (soalke < banyaksoal) {
+        if (soalke < 10) {
             loadsoal(soalke);
         } else {
             gameover();
@@ -277,14 +589,17 @@ public class arcade extends AppCompatActivity {
         kesempatan--;
         if (kesempatan > 1) {
             buattoast("silahkan di revisi kembali, kesempatanmu berkurang menjadi " + kesempatan);
+            setkesempatan(kesempatan);
         }
         if (kesempatan == 0) {
             buattoast("ini kesempatan terakhir, jangan di sia siakan broo!!");
-        }
-        if (kesempatan < 0) {
-            gameover();
+            setkesempatan(kesempatan);
         }
         setkesempatan(kesempatan);
+        if (kesempatan < 0) {
+            gameover();
+            setkesempatan(0);
+        }
     }
 
     public void gameover() {

@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".arcade" />
         <activity android:name=".gameover" />
-        <activity android:name=".catchall"></activity>
+        <activity android:name=".catchall" />
+        <activity android:name=".jawab"></activity>
     </application>
 
 </manifest>
